@@ -21,10 +21,10 @@
 \
 \
 \page 
-\b\fs36 Background
+\b\fs36 History
 \b0\fs24 \
 \
-The X16R (random) algorithm was launched on the Ravencoin network in late 2018. This new algorithm provided an innovative method of ASIC resistance. \
+Previous to our efforts, the X16R (random) algorithm was launched on the Ravencoin network in late 2018. This new algorithm provided an innovative method of ASIC resistance. Since our new algorithm is building on the Ravencoin team's work, it's important to first understand how it works.\
 \
 X16R used algorithms from X15, added SHA512, and then randomized the order by referencing the last sixteen digits of the previous block hash.\
 \
@@ -43,7 +43,7 @@ X16R used algorithms from X15, added SHA512, and then randomized the order by re
 \f0  \cf0 \kerning1\expnd0\expndtw0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
-Given the last sixteen digits of the previous block hash\
+Given the last sixteen digits of the previous block hash:\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
 
@@ -52,14 +52,14 @@ Given the last sixteen digits of the previous block hash\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
-X16R would complete a single hash cycle in the order below \
+X16R would complete a single hash cycle in the order below.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
 
-\f1\fs28 \cf0 4 keccak, f sha512, 0 blake, d shabal, a echo,\
-5 skein, 2 groestl, 0 blake, 7 cubehash, \
-2 groestl, c fugue, 9 simd, 9 simd, 4 keccak, \
-9 simd, 2 groestle
+\f1\fs28 \cf0 4 keccak, f sha512, 0 blake, d shabal, \
+a echo, 5 skein, 2 groestl, 0 blake, \
+7 cubehash, 2 groestl, c fugue, 9 simd, \
+9 simd, 4 keccak, 9 simd, 2 groestle
 \f0\fs24 \cf2 \expnd0\expndtw0\kerning0
 \outl0\strokewidth0 \strokec2 \
 \pard\pardeftab720\sl280\partightenfactor0
@@ -77,25 +77,10 @@ These power spikes reduce power-supply efficiency and lifespan. Our new algorith
 \b\fs36 Introducing X16S (shuffle)
 \b0\fs24 \
 \
-The X16S (shuffle) algorithm uses the last sixteen digits of the previous block hash to reorder a list containing all sixteen algorithms. It employs the same individual algorithms found in X16R.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
-\
-\pard\pardeftab720\sl280\partightenfactor0
-
-\f1\fs28 \cf2 \expnd0\expndtw0\kerning0
-    0  blake      6  luffa       c  fugue\
-    1  bmw        7  cubehash    d  shabal\
-    2  groestl    8  shavite     e  whirlpool\
-    3  jh         9  simd        f  sha512\
-    4  keccak     a  echo\
-    5  skein      b  hamsi
-\fs24 \
-
-\f0  \cf0 \kerning1\expnd0\expndtw0 \
+The X16S (shuffle) algorithm uses the last sixteen digits of the previous block hash to reorder a list containing all sixteen algorithms. It employs the same individual algorithms found in X16R.\cf2 \outl0\strokewidth0  \cf0 \kerning1\expnd0\expndtw0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
-Given the last sixteen digits of the previous block hash\
+Given the last sixteen digits of the previous block hash:\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
 
@@ -104,7 +89,8 @@ Given the last sixteen digits of the previous block hash\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
-X16S would first reorder a list by the value of each digit found within the last sixteen digits of the previous block hash to reference an index within a list containing all algorithms. \
+X16S shuffles a list by using the value of each digit found within the last sixteen digits of the previous block hash to reference an index within a list containing all algorithms. \
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
 
 \f1\fs28 \cf0    0123456789abcdef\
@@ -118,12 +104,18 @@ f  f4012356789abcde\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 The final order would then be\
+\f0\fs24 \cf0 The final order would then be:\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
 
-\f1\fs28 \cf0 2035a1c8f4679bde\
+\f1\fs28 \cf0 2 groestl, 0 blake, 3 jh, 5 skein, \
+a echo, 1 bmw, c fugue, 8 shavite, \
+f sha512, 4 keccak, 6 luffa, 7 cubehash, \
+9 simd, b hamsi, d shabal, e whirlpool\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 We then notice that the algorithms are never repeated or omitted, yet they are still randomly selected using the last sixteen digits from the previous block hash. This provides all the benefits of X16R while vastly improving the hashrate and power consistency. This makes it much better for small miners, further promoting decentralization.}
+\f0\fs24 \cf0 \
+X16S randomizes the order based on the previous block hash, but no algorithms are repeated or omitted. This provides all the benefits of X16R while vastly improving the hashrate and power consistency. This makes it much better for small miners, further promoting decentralization.\
+\
+Pigeoncoin is the proof-of-concept network for the X16S algorithm. We thank the Ravencoin team for their hard work and hope that our efforts are useful to them. Source code is open-source under the MIT license at https://github.com/pigeoncoin}
